@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.canton-boundary {
+    stroke-width: 1px;
+}
+
+.land-boundary {
+    stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/d3.slider/d3.slider.js"></script>
+<script src="bower_components/topojson/topojson.js"></script>
+<link rel="stylesheet" type="text/css" href="bower_components/d3.slider/d3.slider.css"></link>
+
+<div id="slider"></div>
+<div id="sliderval"></div>
+
+<script>
+
+d3.select('#slider').call(d3.slider().on("slide", function(evt, value) {d3.select('#sliderval').text(value);}).axis(true).min(1400).max(2015).step(5)); //;
+
+</script>

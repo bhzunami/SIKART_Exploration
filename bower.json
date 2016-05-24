@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "d3": "~3.5.17",
-    "topojson": "~1.6.26"
+    "topojson": "~1.6.26",
+    "d3.slider": "*"
   }
 }
