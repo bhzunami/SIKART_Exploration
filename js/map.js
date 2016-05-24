@@ -30,7 +30,20 @@ d3.json("/data/switzerland.json", function(error, topology) {
                         console.log(d.properties.name);
                     })
       .on("mousedown", function (d) {
-                        alert("Selected " + JSON.stringify(d.properties.abbr));
+                        canton = d.properties.abbr;
+                        artistsElem = $('#artists');
+                        artistsElem.empty();
+                        data.cantons[canton]['artists'].forEach(function(artistHauptNr){
+                            artist = data.artists[artistHauptNr];
+                            artistsElem.append(artist.Vorname + ' ' + artist.Name + ' - '); //TODO: Use template
+                        });
+                        
+                        exhibitionsElem = $('#exhibitions');
+                        exhibitionsElem.empty();
+                        data.cantons[canton]['exhibitions'].forEach(function(exhibitionHauptNr){
+                            exhibition = data.exhibitions[exhibitionHauptNr];
+                            exhibitionsElem.append(exhibition.Titel + ' - '); //TODO: Use template
+                        });
                     })
       .attr("d", path);
 });
