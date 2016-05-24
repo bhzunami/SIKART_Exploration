@@ -1,0 +1,36 @@
+path {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+
+#tooltip {
+        visibility: hidden;
+        text-align: center;
+        text-shadow: 0 1px rgba(0, 0, 0, .5);
+        line-height: 1.5;
+        color: #fff;
+        background: #333;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+}
+
+.canton:hover {
+    fill: #de1677;
+}
+
+
+.swiss_map {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
