@@ -18,6 +18,8 @@
   ],
   "dependencies": {
     "d3": "~3.5.17",
-    "topojson": "~1.6.26"
+    "topojson": "~1.6.26",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.4"
   }
 }

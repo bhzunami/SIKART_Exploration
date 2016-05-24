@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
 
-path {
-  fill: #ccc;
-  stroke: #fff;
-  stroke-width: .5px;
-}
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
 
-.canton-boundary {
-    stroke-width: 1px;
-}
-
-.land-boundary {
-    stroke-width: 2px;
-}
-
-</style>
+<!-- http://prokofyev.ch/2013/06/stationboards-usage-map.html -->
 <body>
+
+<div class="navbar" role="navigation">
+      <div class="navbar-header">
+        <!-- Responsive design -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand active" href="/"><img src="/images/logo_sik.gif" id="navlogo"></a>
+      </div>
+  </div>
+
+
+
+<div class="container">
+<div class="row map">
+    <div class="col-md-12">Swiss Art Explorer</div>
+    <div class="col-md-12 swiss_map"/>
+
+</div>
+
+
+</div> <!-- End div for container -->
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/topojson/topojson.js"></script>
-<script>
-
-var width = 960,
-    height = 500;
-
-
-var projection = d3.geo.albers()
-            .rotate([0, 0])
-            .center([8.73, 46.8])
-            .scale(13600);
-
-var path = d3.geo.path().projection(projection);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-d3.json("/data/switzerland.json", function(error, topology) {
-  if (error) throw error;
-
-  svg.selectAll("path")
-      .data(topojson.feature(topology, topology.objects.cantons).features)
-      .enter().append("path")
-      .attr("d", path);
-
-  svg.append("path")
-                .datum(topojson.mesh(topology, topology.objects.cantons, function(a, b) { return a.properties.no !== b.properties.no}))
-                .attr("d", path)
-                .attr("class", "canton-boundary");
-});
-
-</script>
+<script src="js/map.js"></script>
+</body>
+</html>
