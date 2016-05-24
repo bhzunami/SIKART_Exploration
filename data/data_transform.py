@@ -38,6 +38,14 @@ def extract_artist_data(data, cantons):
     cantons[canton]['artists'].append(hauptNr)
 
   return artists
+  
+  
+def extract_werke_data(data):
+  werke = {}
+  for w in data:
+    werke[int(w['Hauptnr'])] = w;
+
+  return werke
 
   
 def prepare_cantons():
@@ -48,11 +56,12 @@ def prepare_cantons():
 
   return cantons
 
-def export_json(exhibitions, artists, cantons):
+def export_json(exhibitions, artists, werke, cantons):
 
   output = {}
   output['exhibitions'] = exhibitions
   output['artists'] = artists
+  output['werke'] = werke
   output['cantons'] = cantons
   with open('data.json', 'w', encoding='utf8') as outfile:
     json.dump(output, outfile, indent=4, ensure_ascii=False)
@@ -66,7 +75,10 @@ def main():
   data = load_data('artists.json')
   artists = extract_artist_data(data, cantons)
   
-  export_json(exhibitions, artists, cantons)
+  data = load_data('werke.json')
+  werke = extract_werke_data(data)
+  
+  export_json(exhibitions, artists, werke, cantons)
   
   #print(artists["4000014"])
 
