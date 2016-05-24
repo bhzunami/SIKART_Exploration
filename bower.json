@@ -1,0 +1,19 @@
+{
+  "name": "SIKART_Exploration_JS",
+  "homepage": "https://github.com/bhzunami/SIKART_Exploration_JS",
+  "authors": [
+    "L. Schmid & N. Mauchle & K. Koebel"
+  ],
+  "description": "Exploration of SIKART Artefacts",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
