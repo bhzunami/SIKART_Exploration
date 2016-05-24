@@ -30,20 +30,31 @@ d3.json("/data/switzerland.json", function(error, topology) {
                         console.log(d.properties.name);
                     })
       .on("mousedown", function (d) {
-                        canton = d.properties.abbr;
-                        artistsElem = $('#artists');
+                        var canton = d.properties.abbr;
+                        var artistsElem = $('#artists');
+                        var limit = 10;
                         artistsElem.empty();
-                        data.cantons[canton]['artists'].forEach(function(artistHauptNr){
-                            artist = data.artists[artistHauptNr];
-                            artistsElem.append(artist.Vorname + ' ' + artist.Name + ' - '); //TODO: Use template
+                        data.cantons[canton]['artists'].slice(0,limit).forEach(function(artistHauptNr){
+                            var artist = data.artists[artistHauptNr];
+                            var elem = $('<div/>', { 'class': 'js_artist','data-hauptnr': artistHauptNr });
+                            elem.html(artist.Vorname + ' ' + artist.Name);
+                            artistsElem.append(elem); //TODO: Use template
                         });
+                        if(data.cantons[canton]['artists'].length > limit){
+                            artistsElem.append('<div>...</div>');
+                        }
                         
-                        exhibitionsElem = $('#exhibitions');
+                        var exhibitionsElem = $('#exhibitions');
                         exhibitionsElem.empty();
-                        data.cantons[canton]['exhibitions'].forEach(function(exhibitionHauptNr){
-                            exhibition = data.exhibitions[exhibitionHauptNr];
-                            exhibitionsElem.append(exhibition.Titel + ' - '); //TODO: Use template
+                        data.cantons[canton]['exhibitions'].slice(0,limit).forEach(function(exhibitionHauptNr){
+                            var exhibition = data.exhibitions[exhibitionHauptNr];
+                            var elem = $('<div/>', { 'class': 'js_exhibition','data-hauptnr': exhibitionHauptNr });
+                            elem.html(exhibition.Titel + ' - ');
+                            exhibitionsElem.append(elem); //TODO: Use template
                         });
+                        if(data.cantons[canton]['exhibitions'].length > limit){
+                            exhibitionsElem.append('<div>...</div>');
+                        }
                     })
       .attr("d", path);
 });

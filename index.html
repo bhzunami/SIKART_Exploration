@@ -7,41 +7,47 @@
 <!-- http://prokofyev.ch/2013/06/stationboards-usage-map.html -->
 <body>
 
-<div class="navbar" role="navigation">
-      <div class="navbar-header">
-        <!-- Responsive design -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand active" href="/"><img src="/images/logo_sik.gif" id="navlogo"></a>
+    <div class="navbar" role="navigation">
+          <div class="navbar-header">
+            <!-- Responsive design -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand active" href="/"><img src="/images/logo_sik.gif" id="navlogo"></a>
+          </div>
       </div>
-  </div>
 
 
 
-<div class="container">
-<div class="row map">
-    <div class="col-md-12">Swiss Art Explorer</div>
-    <div class="col-md-12 swiss_map"/>
+    <div class="container">
+        <div class="row map">
+            <div class="col-md-12">Swiss Art Explorer</div>
+            <div class="col-md-12 swiss_map"></div>
 
-</div>
+        </div>
 
-<b>Artists:</b><br/>
-<div id="artists"></div>
-<br/><br/><!--br br Sorry Kathrin-->
-<b>Exhibition:</b><br/>
-<div id="exhibitions"></div>
+        <div class="row">
+            <b>Details:</b><br/>
+            <div id="details"></div>
+            <div id="images"></div>
 
-</div> <!-- End div for container -->
+            <b>Artists:</b><br/>
+            <div id="artists"></div>
+            <br/><br/><!--br br Sorry Kathrin-->
+            <b>Exhibition:</b><br/>
+            <div id="exhibitions"></div>
+        </div>
+    </div> <!-- End div for container -->
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/d3/d3.js"></script>
-<script src="bower_components/topojson/topojson.js"></script>
-<script src="js/data.js"></script>
-<script src="js/map.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/topojson/topojson.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/list.js"></script>
 </body>
 </html>
