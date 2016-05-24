@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
+<!-- external link for bootstrap --> 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!--
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+-->
+
 <link rel="stylesheet" href="css/style.css">
 
 <!-- http://prokofyev.ch/2013/06/stationboards-usage-map.html -->
@@ -16,51 +22,119 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand active" href="/"><img src="/images/logo_sik.gif" id="navlogo"></a>
+        <a class="navbar-brand active" href="/"><img src="images/logo_sik.gif" id="navlogo"></a>
     </div>
 </div>
 
-
-
 <div class="container">
-    <div class="row map">
-        <div class="col-md-12">Swiss Art Explorer</div>
-        <div class="col-md-12 swiss_map"></div>
 
+    <!-- SUBNAV --> 
+    <div class="row">
+        <div class="col-md-12" id="subnav">
+            <ul>
+                <li><a href = "#">Login</a> </li> 
+                <li class="language"><a href = "#">DE</a> </li>  
+                <li class="language"><a href = "#">FR</a></li>  
+                <li class="language"><a href = "#">IT</a></li>  
+                <li class="language"><a href = "#">EN</a></li> 
+            </ul>
+        </div>
     </div>
 
+    <!-- TITLEBAR --> 
+    <div class="row">
+        <div class="col-md-12 grey_bg" id="titlebar">
+            <h1>Swiss Geo Art Explorer</h1>
+        </div>
+    </div>    
+    
+    <!-- MAP --> 
+    <div class="row map lightgrey_bg"> 
+        <div class="col-md-12 swiss_map "><br><br><br><br><br><br>insert map here<br><br><br><br><br><br><br><br></div>
+    </div>
+
+    <!-- TIMESLIDER --> 
+    <div class="row">
+        <div id="timelineslider" class ="grey_bg"> 
+            <div class="col-md-12">insert timeline slider</div>
+        </div>
+    </div>
+
+    <!-- FILTER BUTTONS --> 
+    <div class="row">
+        <div id="filters" class="col-md-12"> 
+            <a href="#" id="filter_malerei" class="button filter_btn btn_selected">Malerei</a>
+            <a href="#" id="filter_plastik" class="button filter_btn btn_selected">Plastik</a>
+            <a href="#" id="filter_zeichnung" class="button filter_btn btn_selected">Zeichung</a>
+            <a href="#" id="filter_druckgrafik" class="button filter_btn btn_selected">Druckgrafik</a>
+            <a href="#" id="filter_digitalart" class="button filter_btn btn_unselected">Digital Art</a>
+            <a href="#" id="filter_kunstambau" class="button filter_btn btn_selected">Kunst am Bau</a>
+            <a href="#" id="filter_angewkunst" class="button filter_btn btn_selected">angewandte Kunst</a>
+        </div>
+    </div>
+
+    <!-- IMAGE PREVIEW --> 
+    <div class="row lightgrey_bg" id="imagepreview">
+        <b>Details:</b><br/>
+        <div id="details"><h4 class="bildlegende_big">Künstlername <br> bei hover <br> über bild</h4></div>
+        <div id="images">
+            <!--
+            <img src="images/bilder/87040DS1.jpg" class="imageprev" width="200" height = "200"> 
+        -->
+        </div>
+    </div>
+
+    <!-- ARTISTS & EXHIBITIONS --> 
     <div class="row">
         <div class="col-md-6">
             <h2>Artists</h2>
-            <div id="artists">
-
-            </div>
-
+            <div id="artists">display all artists <br>with icon or as list<br>TBD<br><br></div>
         </div>
         <div class="col-md-6">
             <h2>Exhibitions</h2>
-            <div id="exhibitions">
+            <div id="exhibitions">display all exhibitions <br>with icon or as list<br>TBD<br><br></div>
+        </div>
+    </div>
+
+    <!-- ARTIST DETAIL --> 
+    <div class="row">
+        <div id="artist_detail" class="col-md-12 verylightgrey_bg"> 
+            <div class="col-md-6" id="picslider_artists">
+                <!--<img src="images/bilder/87040DS1.jpg" class="imageprev" width="200" height = "200"> 
+            -->
+                <h4 class="bildlegende">Werktitel<br><br><br><br><br><br><br><br></h4>
 
             </div>
-        </div>
-
-        <div class="col-md-6">
-            <h2>Images</h2>
-            <div id="images">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <h2>Details</h2>
-            <div id="details">
+            <div class="col-md-6">
+                <h3>Vorname Name des Künstlers</h3>
+                <p>Lebensdaten</br>
+                Gattungen</p>
+                <p class="vita">Vitazeile</p>
             </div>
         </div>
     </div>
 
+    <!-- EXHIBITION DETAIL --> 
+    <div class="row">
+        <div id="exhibition_detail" class="col-md-12 verylightgrey_bg"> 
+            <div class="col-md-6" id="picslider_exhibitions">insert pictures here<br><br><br><br><br><br><br><br></div>
+            <div class="col-md-6">
+                <h3>Ausstellungstitel</h3>
+                <p>Ausstellungszeitraum</p>
+                <p><a href="#">Institution</a><br>Ort</p>
+                <p>evt. Werke von Künstlernamen auflisten</p>
+            </div>
+        </div>
+    </div>
 </div> <!-- End div for container -->
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!--
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+-->
+
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/topojson/topojson.js"></script>
 <script src="js/data.js"></script>

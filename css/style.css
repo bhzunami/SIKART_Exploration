@@ -1,9 +1,215 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700);
+
 path {
   fill: #ccc;
   stroke: #fff;
   stroke-width: .5px;
 }
 
+/****************************
+    COLORS 
+****************************/
+
+.verylightgrey_bg {
+    background-color: #f6f6f6;
+}
+
+.lightgrey_bg {
+    background-color: #eeeeee;
+}
+
+.grey_bg {
+    background-color: #cccccc;
+}
+
+.pink_bg {
+    background-color: #e41682;
+}
+
+/****************************
+    GENERAL SETTINGS 
+****************************/
+
+body, p, a, div{
+    font-family: 'Arimo', sans-serif;
+    color: black;
+}
+
+div {
+    padding: 0;
+    margin: 0;
+}
+
+/****************************
+    FONTS
+****************************/
+
+h1, h2, h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+#titlebar h1 {
+    color: #ffffff;
+    font-size: 24px;
+    padding: 0px 20px 9px 20px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #e41682;
+}
+
+h3 {
+    font-size: 16px;
+    color: #e41682;
+}
+
+h4 {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+p {
+    font-size: 14px;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: #e41682;
+}
+
+.vita::before {
+    content: "« ";
+    font-size: 20px;
+    font-style: inherit;
+    color: #cccccc;
+}
+.vita::after {
+    content: " »";
+    font-size: 20px;
+    font-style: inherit;
+    color: #cccccc;
+}
+
+.bildlegende, .bildlegende_big{
+    padding-left: 10px;
+    z-index: 1;
+}
+
+.bildlegende_big{
+    font-size: 20px;
+}
+
+#subnav {
+    font-size: 12px;
+    text-align: right;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+#subnav li{
+    display: inline;
+}
+
+#subnav li.language::before { 
+    content: "| ";
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#subnav a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 700;
+}
+
+#subnav a:hover{
+    color: #e41682;
+}
+
+
+
+/****************************
+    ELEMENTS
+****************************/
+
+#subnav {
+    margin-top: 20px;
+}
+div #titlebar {
+    margin-bottom: 10px;
+    margin-top:0;
+    padding: 0;
+    height: 60px;
+}
+
+#timelineslider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 36px;
+}
+
+#filters{
+    margin-bottom: 10px;
+    padding: 10px 0px;
+}
+
+#imagepreview{
+    height: 200px;
+}
+
+#artist_detail, #exhibition_detail{
+    margin-bottom: 10px;
+}
+
+.imageprev{
+    z-index: -1;
+}
+
+#picslider_artists, #picslider_exhibitions{
+    margin: 20px 0px;
+    padding: 0px;
+    background-color: #cccccc;
+}
+
+/****************************
+    BUTTONS
+****************************/
+
+.button {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #cccccc;
+    padding: 10px 20px 8px 20px;
+}
+
+/*ç
+.filter_btn{
+    border-left: solid 3px #ffffff;
+    border-right: solid 3px #ffffff;
+}
+*/
+
+a.button:hover {
+    background-color: #e41682;
+    color: #ffffff;
+}
+
+.button.filter_btn.btn_unselected {
+    background-color: #eeeeee;
+}
+
+.btn_spacer {
+}
+
+
+/****************************
+    MAP
+****************************/
 
 #tooltip {
         visibility: hidden;
