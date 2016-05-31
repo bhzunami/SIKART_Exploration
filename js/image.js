@@ -33,7 +33,7 @@ var images = {
         if(img.height != 0){
             var div = $("<div>", {class: "js_imageContainer"});
             $('<img src="'+ path +'">').load(function() {
-                $(this).width(width).appendTo(div); //.height(height)
+                //$(this).width(width).appendTo(div); //.height(height)
                 var legende = $("<h4>", {id: "", class: "bildlegende", text: werk.Titel});
                 legende.appendTo(div);
                 div.appendTo(target);
