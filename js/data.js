@@ -1,12 +1,10 @@
 var data;
 $(function(){ 
   function loadingFinished(){
-      console.log('finished loading Ausstellungen/persons');
+      reloadCantonData();
   }
 
   function loadData(){
-    var artists = new Map();
-    var ausstellungen = new Set();
     $.getJSON("data/data.json", function(json) {
       data = json;
     }).then(loadingFinished);
@@ -14,3 +12,21 @@ $(function(){
   
   loadData();
 });
+
+function getKeys(obj) {
+  var ret = Array();
+  for (var key in obj)
+    ret.push(key);
+  return ret;
+}
+
+function splitStringArr(inStr, random){
+  var arr = inStr.split(",");
+  arr = arr.map(function(e){return e.trim();});
+  if (random) {
+    arr.sort(function () {
+      return 0.5 - Math.random()
+    });
+  }
+  return arr;
+}

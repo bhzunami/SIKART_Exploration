@@ -180,6 +180,10 @@ div #titlebar {
     height: 36px;
 }
 
+#timelineslider .d3-slider-handle {
+    width: 2.5em;
+}
+
 #filters{
     margin-bottom: 10px;
     padding: 10px 0px;
