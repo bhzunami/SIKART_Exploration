@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<!-- external link for bootstrap --> 
+<!-- external link for bootstrap 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+--> 
 
-<!--
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
--->
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="bower_components/d3.slider/d3.slider.css">
@@ -14,9 +13,11 @@
 <!-- http://prokofyev.ch/2013/06/stationboards-usage-map.html -->
 <body>
 
+<!--
 <div class="navbar" role="navigation">
-    <div class="navbar-header">
+    <div class="navbar-header">-->
         <!-- Responsive design -->
+        <!--
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -26,12 +27,17 @@
         <a class="navbar-brand active" href="/"><img src="images/logo_sik.gif" id="navlogo"></a>
     </div>
 </div>
+-->
 
 <div class="container">
 
     <!-- SUBNAV --> 
-    <div class="row">
-        <div class="col-md-12" id="subnav">
+    <div class="row" id="topbar">
+        <!-- LOGO --> 
+        <div class="col-md-6 ">
+            <a id="sikart_logo" href="/"><img src="images/Sikart_Logo.gif" alt="Schweizerisches Institut für Kunstwissenschaft"></a>
+        </div>
+        <div class="col-md-6" id="subnav">
             <ul>
                 <li><a href = "#">Login</a> </li> 
                 <li class="language"><a href = "#">DE</a> </li>  
@@ -208,15 +214,6 @@
                 <a href="#" class="button icon_exhibition" data-toggle="tooltip" title="Exhibition Title">
                     <i class = "glyphicon glyphicon-home" ></i>
                 </a>
-                <a href="#" class="button icon_exhibition" data-toggle="tooltip" title="Exposition Title">
-                    <i class = "glyphicon glyphicon-picture"></i>
-                </a>
-                <a href="#" class="button icon_exhibition" data-toggle="tooltip" title="Exposition Title">
-                    <i class = "glyphicon glyphicon-eye-open"></i>
-                </a>
-
-
-
                 <br>
                 <br>
             </div>
@@ -253,10 +250,9 @@
 </div> <!-- End div for container -->
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!--
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 -->
 
 <script src="bower_components/d3/d3.js"></script>
