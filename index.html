@@ -9,6 +9,7 @@
 -->
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="bower_components/d3.slider/d3.slider.css">
 
 <!-- http://prokofyev.ch/2013/06/stationboards-usage-map.html -->
 <body>
@@ -50,13 +51,15 @@
     
     <!-- MAP --> 
     <div class="row map lightgrey_bg"> 
-        <div class="col-md-12 swiss_map "><br><br><br><br><br><br>insert map here<br><br><br><br><br><br><br><br></div>
+        <div class="col-md-12 swiss_map "></div>
     </div>
 
     <!-- TIMESLIDER --> 
     <div class="row">
-        <div id="timelineslider" class ="grey_bg"> 
-            <div class="col-md-12">insert timeline slider</div>
+        <div id="timelineslider" class ="grey_bg">
+            <div class="col-md-12">
+                <div id="js_slider"></div>
+            </div>
         </div>
     </div>
 
@@ -75,8 +78,11 @@
 
     <!-- IMAGE PREVIEW --> 
     <div class="row lightgrey_bg" id="imagepreview">
-        <b>Details:</b><br/>
-        <div id="details"><h4 class="bildlegende_big">Künstlername <br> bei hover <br> über bild</h4></div>
+        <!--<b>Details:</b><br/>-->
+        <!--<div>-->
+            <!--<h4 id="details_main" class="bildlegende_big">Künstlername <br> bei hover <br> über bild</h4>-->
+            <!--<div id="details_desc" class="bildlegende"></div>-->
+        <!--</div>-->
         <div id="images">
             <!--
             <img src="images/bilder/87040DS1.jpg" class="imageprev" width="200" height = "200"> 
@@ -226,11 +232,11 @@
                 <h4 class="bildlegende">Werktitel<br><br><br><br><br><br><br><br></h4>
 
             </div>
-            <div class="col-md-6">
-                <h3>Vorname Name des Künstlers</h3>
-                <p>Lebensdaten</br>
-                Gattungen</p>
-                <p class="vita">Vitazeile</p>
+            <div class="col-md-6" id="detail_container">
+                <h3 id="Vorname">Vorname</h3> <h3 id="Nachname">Nachname</h3>
+                <p id="Lebensdaten">Lebensdaten</p>
+                <p id="Gattungen">Gattungen</p>
+                <p id="Vitazeile" class="vita">Vitazeile</p>
             </div>
         </div>
     </div>
@@ -257,9 +263,11 @@
 -->
 
 <script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/d3.slider/d3.slider.js"></script>
 <script src="bower_components/topojson/topojson.js"></script>
 <script src="js/data.js"></script>
 <script src="js/map.js"></script>
 <script src="js/list.js"></script>
+<script src="js/slider.js"></script>
 </body>
 </html>

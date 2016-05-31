@@ -7,8 +7,14 @@ $(function(){
 
   function loadArtist(artistHauptnr){
     var artist = data.artists[artistHauptnr];
-    var target = $('#details');
-    target.html(artist.Name + ' - ' + artist.Vorname);
+    var target = $('#artist_detail');
+    var targetContainer = target.find('#detail_container');
+    targetContainer.children().each(function () {
+      var id = $(this)[0].id;
+      if(id){
+        $(this).html(artist[id]);
+      }
+    });
     previewImages(artist.Werke, 10);
   }
 
