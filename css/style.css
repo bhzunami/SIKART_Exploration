@@ -208,6 +208,15 @@ div #titlebar {
     background-color: #cccccc;
 }
 
+/*Can't click on artist images*/
+#picslider_artists .js_artist {
+    pointer-events: none;
+    cursor: default;
+}
+#picslider_exhibitions .js_artist, #imagepreview .js_artist{
+    cursor: pointer;
+}
+
 /*
 .noImage {
     height: 400px;
@@ -234,9 +243,10 @@ div #titlebar {
 }
 */
 
-a.button:hover {
+a.button:hover, span.button:hover {
     background-color: #e41682;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .button.filter_btn.btn_unselected {

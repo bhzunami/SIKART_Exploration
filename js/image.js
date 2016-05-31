@@ -23,7 +23,7 @@ var images = {
         return limitImages > 0; //true if still images
     },
     showImage : function (werk, imgTarget){
-        return images.loadImage(werk, 400, 400, imgTarget);
+        return images.loadImage(werk, 195, 195, imgTarget);
     },
     loadImage : function (werk, width, height, target) {
         //Check if exists
@@ -31,11 +31,18 @@ var images = {
         path = 'images/bilder/'+werk.Bildname;
         img.src = path;
         if(img.height != 0){
-            var div = $("<div>", {class: "js_imageContainer"});
+            var div = $("<div>", { class: "js_imageContainer js_artist", 'data-hauptnr': werk.Urhauptnr });
             $('<img src="'+ path +'">').load(function() {
-                $(this).appendTo(div); //.width(width).height(height)
-                var legende = $("<h4>", {id: "", class: "bildlegende", text: werk.Titel});
-                legende.appendTo(div);
+                if(img.width < img.height){
+                    $(this).width(width);
+                }else{
+                    $(this).height(height);
+                }
+                $(this).appendTo(div); //
+                $("<h4>", {id: "", class: "bildlegende werkTitel", text: werk.Titel}).appendTo(div);
+
+                var artist = data.artists[werk.Urhauptnr];
+                $("<h4>", {id: "", class: "bildlegende artistTitel", text: artist.Vorname + ' ' + artist.Name}).appendTo(div);
                 div.appendTo(target);
             });
             return 1;
@@ -43,4 +50,9 @@ var images = {
             return 0;
         }
     }
-}
+};
+
+/*a.disabled {
+ pointer-events: none;
+ cursor: default;
+ }*/

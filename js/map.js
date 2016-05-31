@@ -85,13 +85,8 @@ function showArtists(artists){
         .forEach(function(artistHauptNr){
             if(!displayedArtists.has(artistHauptNr)){
                 var artist = data.artists[artistHauptNr];
-                var elem = $('<div/>', { 'class': 'js_artist','data-hauptnr': artistHauptNr });
-                /*
-                 <a href="#" class="button icon_artist" data-toggle="tooltip" title="Artist Name">
-                 <i class = "glyphicon glyphicon-user" ></i>
-                 </a>
-                 */
-                elem.html(artist.Vorname + ' ' + artist.Name);
+                var elem = $('<span/>', { 'class': 'button icon_artist js_artist','title':artist.Vorname + ' ' + artist.Name,'data-hauptnr': tooltip,'data-hauptnr': artistHauptNr});
+                var icon = $('<i/>', {'class':'glyphicon glyphicon-user'}).appendTo(elem);
                 artistsElem.append(elem);
                 randomWerke.push(splitStringArr(artist.Werke, true)[0]); //Get first random
                 displayedArtists.add(artistHauptNr);
@@ -118,8 +113,8 @@ function showExhibitions(exhibitions){{
         .forEach(function(exhibitionHauptNr){
             if(!displayedExhibitions.has(exhibitionHauptNr)) {
                 var exhibition = data.exhibitions[exhibitionHauptNr];
-                var elem = $('<div/>', {'class': 'js_exhibition', 'data-hauptnr': exhibitionHauptNr});
-                elem.html(exhibition.Titel + ' - ');
+                var elem = $('<span/>', { 'class': 'button icon_artist js_exhibition','title':exhibition.Titel,'data-hauptnr': tooltip,'data-hauptnr': exhibitionHauptNr});
+                var icon = $('<i/>', {'class':'glyphicon glyphicon-home'}).appendTo(elem);
                 exhibitionsElem.append(elem);
                 displayedExhibitions.add(exhibitionHauptNr);
             }
