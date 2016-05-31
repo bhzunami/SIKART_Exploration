@@ -66,6 +66,10 @@ h3 {
     color: #e41682;
 }
 
+#artist_detail h3 {
+    display: inline-block;
+}
+
 h4 {
     font-size: 16px;
     color: #ffffff;
@@ -83,19 +87,30 @@ a, a:hover {
 .vita::before {
     content: "« ";
     font-size: 20px;
-    font-style: inherit;
+    font-style: italic;
     color: #cccccc;
 }
 .vita::after {
     content: " »";
     font-size: 20px;
-    font-style: inherit;
+    font-style: italic;
     color: #cccccc;
+}
+p.vita{
+    color: #cccccc;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.js_imageContainer img {
+    position: relative;
 }
 
 .bildlegende, .bildlegende_big{
     padding-left: 10px;
     z-index: 1;
+    position: absolute;
+    top: 0;
 }
 
 .bildlegende_big{
@@ -162,6 +177,7 @@ div #titlebar {
 
 #artist_detail, #exhibition_detail{
     margin-bottom: 10px;
+    display: none;
 }
 
 .imageprev{
@@ -173,6 +189,12 @@ div #titlebar {
     padding: 0px;
     background-color: #cccccc;
 }
+
+/*
+.noImage {
+    height: 400px;
+}
+*/
 
 /****************************
     BUTTONS
@@ -210,8 +232,14 @@ a.button:hover {
 .button.icon_exhibition {
     font-size: 20px;
     line-height: 44px;
-    padding: 10px 5px 8px 10px;
+    padding: 10px 0px 8px 0px;
     margin-right: 4px;
+}
+
+.icon_artist .glyphicon,
+.icon_exhibition .glyphicon {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
@@ -222,19 +250,23 @@ a.button:hover {
 #tooltip {
         visibility: hidden;
         text-align: center;
-        text-shadow: 0 1px rgba(0, 0, 0, .5);
-        line-height: 1.5;
+        /*text-shadow: 0 1px rgba(0, 0, 0, .5);*/
+        line-height: 1.2;
         color: #fff;
-        background: #333;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        text-transform: uppercase;
+        font-weight: 700;
+        background: #cccccc;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        /*-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
         -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        position: absolute;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);*/
+        /*position: absolute;*/
+        position: initial;
+
         z-index: 100;
-        padding: 15px;
+        padding: 10px;
 }
 
 .canton:hover {
