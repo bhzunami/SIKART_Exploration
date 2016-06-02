@@ -103,14 +103,39 @@ p.vita{
     font-style: italic;
 }
 
-.js_imageContainer img {
+.js_imageContainer {
     position: relative;
+    width: 195px;
+    height: 195px;
+    overflow: hidden;
+}
+
+.js_imageContainer img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    /*clip: rect(0px,195px,195px,0px);*/
 }
 
 .bildlegende, .bildlegende_big{
     padding-left: 10px;
     z-index: 1;
     position: absolute;
+    white-space: pre-wrap;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+#imagepreview .bildlegende {
+    bottom: 0;
+}
+
+#picslider_artists .bildlegende, 
+#picslider_exhibitions .bildlegende {
     top: 0;
 }
 
@@ -148,6 +173,36 @@ p.vita{
 
 
 /****************************
+    PICSLIDER
+****************************/
+
+#imagepreview .js_imageContainer {
+    position: relative;
+    display: inline-block;
+}
+
+#imagepreview .js_imageContainer .werkTitel {
+    display: none;
+}
+
+#imagepreview .js_imageContainer .artistTitel {
+    font-size: 20px;
+    max-width: 195px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+#imagepreview .js_imageContainer:hover .artistTitel {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/****************************
     ELEMENTS
 ****************************/
 
@@ -176,7 +231,7 @@ div #titlebar {
 
 #timelineslider{
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     height: 36px;
 }
 
@@ -190,7 +245,7 @@ div #titlebar {
 }
 
 #imagepreview{
-    height: 200px;
+    height: 195px;
 }
 
 #artist_detail, #exhibition_detail{
@@ -213,6 +268,11 @@ div #titlebar {
     pointer-events: none;
     cursor: default;
 }
+
+#picslider_artists .artistTitel {
+    display: none;
+}
+
 #picslider_exhibitions .js_artist, #imagepreview .js_artist{
     cursor: pointer;
 }
@@ -222,6 +282,37 @@ div #titlebar {
     height: 400px;
 }
 */
+
+.d3-slider {
+    font-family: 'Arimo', sans-serif !important;
+    border: 0px solid #cccccc !important; 
+    font-weight: 700;
+    color: #ffffff !important;
+}
+
+.d3-slider-handle {
+    height: 36px !important;
+
+    border: 0px solid #fff !important;
+    border-radius: 0px !important;
+    background-color: #e41682 !important;
+    background: linear-gradient(to bottom, #e41682 0%, #e41682 100%) !important;
+}
+
+.d3-slider-horizontal .d3-slider-handle {
+    top: 0em !important;
+    margin-left: -.95em !important;
+}
+
+.d3-slider .tick {
+    
+}
+
+svg.d3-slider-axis.d3-slider-axis-bottom {
+    margin-left: -45px !important;
+    padding-top: 25px;
+    opacity: 0.45;
+}
 
 /****************************
     BUTTONS
@@ -234,6 +325,7 @@ div #titlebar {
     color: #ffffff;
     background-color: #cccccc;
     padding: 10px 20px 8px 20px;
+    white-space: nowrap;
 }
 
 /*ç
@@ -278,7 +370,6 @@ a.button:hover, span.button:hover {
 #tooltip {
         visibility: hidden;
         text-align: center;
-        /*text-shadow: 0 1px rgba(0, 0, 0, .5);*/
         line-height: 1.2;
         color: #fff;
         text-transform: uppercase;
