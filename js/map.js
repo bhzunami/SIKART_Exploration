@@ -93,7 +93,7 @@ function showArtists(artists){
             }
         });
     if(artists.length > limit){
-        artistsElem.append('<div>...</div>');
+        artistsElem.append('<div class="numberExceeded">von insgesamt '+artists.length+' Künstlern</div>');
     }
 
     var imgTarget = $('#imagepreview .js_picslider');
@@ -120,7 +120,7 @@ function showExhibitions(exhibitions){{
             }
         });
     if(exhibitions.length > limit){
-        exhibitionsElem.append('<div>...</div>');
+        exhibitionsElem.append('<div class="numberExceeded">von insgesamt '+exhibitions.length+' Ausstellungen</div>');
     }
 }
 
