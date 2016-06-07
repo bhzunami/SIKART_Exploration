@@ -422,6 +422,12 @@ span.button:visited {
     background-color: #cccccc;
 }
 
+span.button.icon_artist.js_exhibition,
+span.button.icon_artist.js_artist {
+    display: inline-flex;
+    margin-bottom: 4px;
+}
+
 .button.icon_button,
 .button.icon_artist, 
 .button.icon_exhibition {
