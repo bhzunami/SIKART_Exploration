@@ -42,8 +42,11 @@ var images = {
                 $("<h4>", {id: "", class: "bildlegende werkTitel", text: werk.Titel}).appendTo(div);
 
                 var artist = data.artists[werk.Urhauptnr];
-                $("<h4>", {id: "", class: "bildlegende artistTitel", text: artist.Vorname + ' ' + artist.Name}).appendTo(div);
+                if(artist){
+                    $("<h4>", {id: "", class: "bildlegende artistTitel", text: artist.Vorname + ' ' + artist.Name}).appendTo(div);
+                }
                 div.appendTo(target);
+                refreshPicSlider();
             });
             return 1;
         }else{

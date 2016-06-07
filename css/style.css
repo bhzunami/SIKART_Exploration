@@ -122,20 +122,20 @@ p.vita{
     /*clip: rect(0px,195px,195px,0px);*/
 }
 
-#picslider_artists {
+.js_detailslider {
   max-width: 400px;
   background-color: black;
   margin: 0 auto;
   text-align: center;
   position: relative;
 }
-#picslider_artists div {
+.js_detailslider div {
   background-color: white;
   width: 100%;
   display: inline-block;
   display: none;
 }
-#picslider_artists img {
+.js_detailslider img {
   width: 100%;
   height: auto;
 }
@@ -292,6 +292,7 @@ div #titlebar {
 
 #timelineslider .d3-slider-handle {
     width: 2.5em;
+    cursor: pointer;
 }
 
 #filters{
@@ -397,10 +398,8 @@ svg.d3-slider-axis.d3-slider-axis-bottom {
     white-space: nowrap;
 }
 
-a.button:hover, 
-a.button:focus, 
-span.button:hover, 
-span.button:focus {
+a.button:hover,
+span.button:hover {
     background-color: #e41682;
     color: #ffffff;
     cursor: pointer;
@@ -414,8 +413,20 @@ span.button:visited {
     text-decoration: none;
 }
 
+.button.filter_btn{
+    text-decoration: none;
+}
+.button.filter_btn.btn_selected{
+    background-color: #e41682;
+}
 .button.filter_btn.btn_unselected {
-    background-color: #eeeeee;
+    background-color: #cccccc;
+}
+
+span.button.icon_artist.js_exhibition,
+span.button.icon_artist.js_artist {
+    display: inline-flex;
+    margin-bottom: 4px;
 }
 
 .button.icon_button,
@@ -507,6 +518,9 @@ a.button.icon_button:focus {
     float: none;
 }
 
+.swiss_map path{
+    cursor: pointer;
+}
 
 .footer {
   height: 100px;
