@@ -53,7 +53,7 @@ function within(objStart, objEnd){
       (objEnd <= searchEnd || objStart <= searchEnd);
 }
 
-var limit = 50; //Limit per canton
+var limit = 60; //Limit per canton
 
 function reloadCantonData(){
   var canton = curCanton;
@@ -63,6 +63,8 @@ function reloadCantonData(){
   }else{
     var allArtists = getKeys(data.artists);
     showArtists(allArtists);
+    var allExhibitions = getKeys(data.exhibitions);
+    showExhibitions(allExhibitions);
   }
 }
 
@@ -100,7 +102,7 @@ function showArtists(artists){
         }
       });
   if(artists.length > limit){
-    artistsElem.append('<div>...</div>');
+      artistsElem.append('<div class="numberExceeded">von insgesamt '+artists.length+' Künstlern</div>');
   }
 
   var imgTarget = $('#imagepreview .js_picslider');
@@ -128,7 +130,7 @@ function showExhibitions(exhibitions){
         }
       });
   if(exhibitions.length > limit){
-    exhibitionsElem.append('<div>...</div>');
+      exhibitionsElem.append('<div class="numberExceeded">von insgesamt '+exhibitions.length+' Ausstellungen</div>');
   }
 
 }

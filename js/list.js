@@ -18,6 +18,7 @@ $(function(){
 
   function loadArtist(artistHauptnr){
     $('#exhibition_detail').hide();
+    $('#exhibition_detail .js_detailslider').empty();
     $('#artist_detail').show();
     var artist = data.artists[artistHauptnr];
     var target = $('#artist_detail');
@@ -26,9 +27,11 @@ $(function(){
 
   function loadExhibition(exhibitionHauptnr){
     $('#artist_detail').hide();
+    $('#artist_detail .js_detailslider').empty();
     $('#exhibition_detail').show();
     var exhibition = data.exhibitions[exhibitionHauptnr];
     var target = $('#exhibition_detail');
+    
     loadDetail(exhibition, target);
   }
 
