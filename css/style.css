@@ -397,10 +397,8 @@ svg.d3-slider-axis.d3-slider-axis-bottom {
     white-space: nowrap;
 }
 
-a.button:hover, 
-a.button:focus, 
-span.button:hover, 
-span.button:focus {
+a.button:hover,
+span.button:hover {
     background-color: #e41682;
     color: #ffffff;
     cursor: pointer;
@@ -414,8 +412,14 @@ span.button:visited {
     text-decoration: none;
 }
 
+.button.filter_btn{
+    text-decoration: none;
+}
+.button.filter_btn.btn_selected{
+    background-color: #e41682;
+}
 .button.filter_btn.btn_unselected {
-    background-color: #eeeeee;
+    background-color: #cccccc;
 }
 
 .button.icon_button,

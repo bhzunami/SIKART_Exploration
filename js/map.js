@@ -46,7 +46,7 @@ function within(objStart, objEnd){
     (objEnd <= searchEnd || objStart <= searchEnd);
 }
 
-var limit = 10;
+var limit = 50; //Limit per canton
 
 function reloadCantonData(){
     var canton = curCanton;
