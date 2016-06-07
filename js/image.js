@@ -31,7 +31,7 @@ var images = {
         var path = 'images/bilder/'+werk.Bildname;
         img.src = path;
         if(img.height != 0){
-            var div = $("<div>", { class: "js_imageContainer js_artist", 'data-hauptnr': werk.Urhauptnr });
+            var div = $("<div>", { class: "js_imageContainer ", 'data-hauptnr': werk.Urhauptnr }); //js_artist
             $('<img src="'+ path +'">').load(function() {
                 if(img.width < img.height){
                     $(this).width(width);

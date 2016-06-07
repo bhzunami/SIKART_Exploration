@@ -1,6 +1,6 @@
 
 var width = 0.9 * window.innerWidth;
-var height = 0.8 * window.innerHeight;
+var height = 0.3 * width; //window.innerHeight;
 
 var projection = d3.geo.albers().rotate([0, 0])
     .center([8.73, 46.9]) // Long Lat

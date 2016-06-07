@@ -31,7 +31,11 @@ $(function(){
     $('#exhibition_detail').show();
     var exhibition = data.exhibitions[exhibitionHauptnr];
     var target = $('#exhibition_detail');
-    
+    exhibition.Kuenstler = "";
+    exhibition.Artists.forEach(function (a) {
+      exhibition.Kuenstler += a.Vorname + ' ' + a.Name;
+    });
+
     loadDetail(exhibition, target);
   }
 
