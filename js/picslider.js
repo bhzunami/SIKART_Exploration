@@ -33,7 +33,7 @@ var autoSlide = setInterval(function() {
     currentIndex = 0;
   }
   cycleItems();
-}, 3000);
+}, 5000);
 
 $('.next').click(function() {
   event.preventDefault();

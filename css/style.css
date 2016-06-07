@@ -91,12 +91,14 @@ a, a:hover {
     font-style: italic;
     color: #cccccc;
 }
+
 .vita::after {
     content: " »";
     font-size: 20px;
     font-style: italic;
     color: #cccccc;
 }
+
 p.vita{
     color: #cccccc;
     font-size: 16px;
@@ -119,25 +121,28 @@ p.vita{
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    /*clip: rect(0px,195px,195px,0px);*/
 }
 
 .js_detailslider {
-  max-width: 400px;
-  background-color: black;
+  width: 100%; /*350px*/
   margin: 0 auto;
   text-align: center;
   position: relative;
 }
+
 .js_detailslider div {
-  background-color: white;
+  background-color: #cccccc;
   width: 100%;
+  height: auto;
   display: inline-block;
   display: none;
 }
+
 .js_detailslider img {
-  width: 100%;
-  height: auto;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    width: auto;
 }
 
 .next {
@@ -246,10 +251,10 @@ p.vita{
   letter-spacing: 1px;
   padding-top: 12px;
 }
+
 .right {
     text-align: right;
 }
-
 
 
 /****************************
@@ -281,6 +286,7 @@ p.vita{
 #artist_detail .js_imageContainer .artistTitel {
     display: none;
 }
+
 #artist_detail .js_imageContainer .werkTitel {
 
 }
@@ -299,6 +305,7 @@ p.vita{
 #subnav {
     margin-top: 44px;
 }
+
 @media (max-width: 990px){
     #subnav {
         margin-top: 20px;
@@ -308,6 +315,7 @@ p.vita{
 div #topbar{
     margin-top: 10px;
 }
+
 div #titlebar {
     margin-bottom: 10px;
     margin-top:0;
@@ -340,8 +348,6 @@ div #titlebar {
     height: 195px;
 }
 
-
-
 @media (min-width: 991px){
     #kunstschaffende, 
     #ausstellungen {
@@ -349,11 +355,11 @@ div #titlebar {
     }
 }
 
-
 #artist_detail, #exhibition_detail{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     display: none;
-    margin-top: 20px;
+    margin-top: 25px;
+    min-height: 300px;
 }
 
 .imageprev{
@@ -380,12 +386,6 @@ div #titlebar {
     cursor: pointer;
 }
 
-/*
-.noImage {
-    height: 400px;
-}
-*/
-
 .d3-slider {
     font-family: 'Arimo', sans-serif !important;
     border: 0px solid #cccccc !important; 
@@ -395,7 +395,6 @@ div #titlebar {
 
 .d3-slider-handle {
     height: 36px !important;
-
     border: 0px solid #fff !important;
     border-radius: 0px !important;
     background-color: #e41682 !important;
@@ -405,10 +404,6 @@ div #titlebar {
 .d3-slider-horizontal .d3-slider-handle {
     top: 0em !important;
     margin-left: -.95em !important;
-}
-
-.d3-slider .tick {
-    
 }
 
 svg.d3-slider-axis.d3-slider-axis-bottom {
@@ -432,13 +427,6 @@ svg.d3-slider-axis.d3-slider-axis-bottom {
     white-space: nowrap;
 }
 
-/*ç
-.filter_btn{
-    border-left: solid 3px #ffffff;
-    border-right: solid 3px #ffffff;
-}
-*/
-
 .social_button i::after {
     content: "";
     padding-left: 10px;
@@ -455,7 +443,6 @@ span.button:hover {
 
 a.button:visited, 
 span.button:visited {
-    /*background-color: #cccccc;*/
     color: #ffffff;
     text-decoration: none;
 }
@@ -463,9 +450,11 @@ span.button:visited {
 .button.filter_btn{
     text-decoration: none;
 }
+
 .button.filter_btn.btn_selected{
     background-color: #e41682;
 }
+
 .button.filter_btn.btn_unselected {
     background-color: #cccccc;
 }
@@ -492,6 +481,10 @@ span.button.icon_artist.js_artist {
     margin-left: 10px;
 }
 
+.icon_button .glyphicon {
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
 .button.icon_button {
     z-index: 100;
     top: 100px;
@@ -506,18 +499,21 @@ span.button.icon_artist.js_artist {
     right: 25px;
 }
 
+/*
 a.button.icon_button:focus {
     background-color: #cccccc;
 }
+*/
 
 
 a.button.icon_button {
     /* opacity: 0.2; */
     background-color: rgba(204, 204, 204, 0);
+    height: 40px;
+    padding-top: 0;
 }
 
-a.button.icon_button:hover,
-a.button.icon_button:focus {
+a.button.icon_button:hover {
     /*opacity: 1;*/
     background-color: rgba(227, 23, 129, 1);
 }
@@ -538,12 +534,7 @@ a.button.icon_button:focus {
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
         border-radius: 0px;
-        /*-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);*/
-        /*position: absolute;*/
         position: initial;
-
         z-index: 100;
         padding: 10px;
 }
@@ -551,7 +542,6 @@ a.button.icon_button:focus {
 .canton:hover {
     fill: #de1677;
 }
-
 
 .active_canton {
     fill: #bc005f;
