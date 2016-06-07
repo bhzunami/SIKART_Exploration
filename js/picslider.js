@@ -9,15 +9,22 @@
 
 
 var currentIndex = 0,
-  items = $('#picslider_artists .js_picslider div'),
+  items = $('.js_detailslider .js_imageContainer'),
   all_items = items.length;
+function refreshPicSlider(){
+  items = $('.js_detailslider .js_imageContainer');
+  all_items = items.length;
+  cycleItems();
   console.log("items total: " + items.length);
   console.log("current index:" +currentIndex);
+}
 
 function cycleItems() {
-  var item = $('#picslider_artists div').eq(currentIndex);
+  var item = $('.js_detailslider .js_imageContainer').eq(currentIndex);
   items.hide();
   item.css('display','inline-block');
+  console.log("items total: " + items.length);
+  console.log("current index:" +currentIndex);
 }
 
 var autoSlide = setInterval(function() {
@@ -29,6 +36,7 @@ var autoSlide = setInterval(function() {
 }, 3000);
 
 $('.next').click(function() {
+  event.preventDefault();
   clearInterval(autoSlide);
   currentIndex += 1;
   if (currentIndex > all_items - 1) {
@@ -38,6 +46,7 @@ $('.next').click(function() {
 });
 
 $('.prev').click(function() {
+  event.preventDefault();
   clearInterval(autoSlide);
   currentIndex -= 1;
   if (currentIndex < 0) {

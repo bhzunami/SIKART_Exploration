@@ -122,20 +122,20 @@ p.vita{
     /*clip: rect(0px,195px,195px,0px);*/
 }
 
-#picslider_artists {
+.js_detailslider {
   max-width: 400px;
   background-color: black;
   margin: 0 auto;
   text-align: center;
   position: relative;
 }
-#picslider_artists div {
+.js_detailslider div {
   background-color: white;
   width: 100%;
   display: inline-block;
   display: none;
 }
-#picslider_artists img {
+.js_detailslider img {
   width: 100%;
   height: auto;
 }
