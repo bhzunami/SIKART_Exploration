@@ -67,69 +67,45 @@ function reloadCantonData(){
 }
 
 function showArtists(artists){
+  var artistsElem = $('#artists');
+  artistsElem.empty();
 
-    var artistsElem = $('#artists');
-    artistsElem.empty();
+  var randomWerke = new Array();
+  var filteredArtists = artists
+      .filter(function(artistHauptNr){
+        var a = data.artists[artistHauptNr];
+        return within(a.Aktivbeginn, a.Aktivende);
+      });
+  var displayedArtists = new Set();
+  filteredArtists
+      .forEach(function(artistHauptNr){
+        if(!displayedArtists.has(artistHauptNr)){
+          var artist = data.artists[artistHauptNr];
+          randomWerke.push(splitStringArr(artist.Werke, true)[0]); //Get first random
+          displayedArtists.add(artistHauptNr);
+        }
+      });
 
-    var randomWerke = new Array();
-    var filteredArtists = artists
-        .filter(function(artistHauptNr){
-            var a = data.artists[artistHauptNr];
-            return within(a.Aktivbeginn, a.Aktivende);
-        });
-    var displayedArtists = new Set();
-    filteredArtists
-        .forEach(function(artistHauptNr){
-            if(!displayedArtists.has(artistHauptNr)){
-                var artist = data.artists[artistHauptNr];
-                randomWerke.push(splitStringArr(artist.Werke, true)[0]); //Get first random
-                displayedArtists.add(artistHauptNr);
-            }
-        });
+  displayedArtists = new Set();
+  filteredArtists
+      .slice(0,limit)
+      .forEach(function(artistHauptNr){
+        if(!displayedArtists.has(artistHauptNr)){
+          var artist = data.artists[artistHauptNr];
+          var elem = $('<span/>', { 'class': 'button icon_artist js_artist','title':artist.Vorname + ' ' + artist.Name,'data-hauptnr': tooltip,'data-hauptnr': artistHauptNr});
+          var icon = $('<i/>', {'class':'glyphicon glyphicon-user'}).appendTo(elem);
+          artistsElem.append(elem);
+          randomWerke.push(splitStringArr(artist.Werke, true)[0]); //Get first random
+          displayedArtists.add(artistHauptNr);
+        }
+      });
+  if(artists.length > limit){
+    artistsElem.append('<div>...</div>');
+  }
 
-    displayedArtists = new Set();
-    filteredArtists
-        .slice(0,limit)
-        .forEach(function(artistHauptNr){
-            if(!displayedArtists.has(artistHauptNr)){
-                var artist = data.artists[artistHauptNr];
-                var elem = $('<span/>', { 'class': 'button icon_artist js_artist','title':artist.Vorname + ' ' + artist.Name,'data-hauptnr': tooltip,'data-hauptnr': artistHauptNr});
-                var icon = $('<i/>', {'class':'glyphicon glyphicon-user'}).appendTo(elem);
-                artistsElem.append(elem);
-                randomWerke.push(splitStringArr(artist.Werke, true)[0]); //Get first random
-                displayedArtists.add(artistHauptNr);
-            }
-        });
-    if(artists.length > limit){
-        artistsElem.append('<div class="numberExceeded">von insgesamt '+artists.length+' Künstlern</div>');
-    }
+  var imgTarget = $('#imagepreview .js_picslider');
+  images.previewImages(randomWerke, imgTarget, 6, true);
 
-    var imgTarget = $('#imagepreview .js_picslider');
-    images.previewImages(randomWerke, imgTarget, 6, true);
-}
-
-function showExhibitions(exhibitions){{
-    var exhibitionsElem = $('#exhibitions');
-    exhibitionsElem.empty();
-    var displayedExhibitions = new Set();
-    exhibitions
-        /*.filter(function(exhibitionHauptNr){
-         var ex = data.exhibitions[exhibitionHauptNr];
-         return within(ex.JahrVon, ex.JahrBis);
-         })*/
-        .slice(0,limit)
-        .forEach(function(exhibitionHauptNr){
-            if(!displayedExhibitions.has(exhibitionHauptNr)) {
-                var exhibition = data.exhibitions[exhibitionHauptNr];
-                var elem = $('<span/>', { 'class': 'button icon_artist js_exhibition','title':exhibition.Titel,'data-hauptnr': tooltip,'data-hauptnr': exhibitionHauptNr});
-                var icon = $('<i/>', {'class':'glyphicon glyphicon-home'}).appendTo(elem);
-                exhibitionsElem.append(elem);
-                displayedExhibitions.add(exhibitionHauptNr);
-            }
-        });
-    if(exhibitions.length > limit){
-        exhibitionsElem.append('<div class="numberExceeded">von insgesamt '+exhibitions.length+' Ausstellungen</div>');
-    }
 }
 
 function showExhibitions(exhibitions){
