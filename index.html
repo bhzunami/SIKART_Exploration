@@ -142,13 +142,22 @@
     <!-- EXHIBITION DETAIL --> 
     <div class="row">
         <div id="exhibition_detail" class="col-md-12 verylightgrey_bg">
-            <div class="col-md-3 js_picslider js_detailslider" id="picslider_exhibitions">insert pictures here<br><br><br><br><br><br><br><br></div>
-            <div class="col-md-8 js_detail_container">
-                <h3 id="Titel">Ausstellungstitel</h3>
-                <p id="Datum">Ausstellungszeitraum</p>
-                <p id="Ort">Ort</p>
-                <p><a id="Url" href="#">Institution</a><br>Ort</p>
-                <p>evt. Werke von Künstlernamen auflisten</p>
+            <div class="col-md-4">
+                <a href="#" id="switch_left" class="button icon_button prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a href="#" id="switch_right" class="button icon_button next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                <div class="col-md-3 js_picslider" id="picslider_exhibitions"></div>
+            </div>
+            <div class="col-md-5 js_detail_container">
+                <h3 id="Titel"></h3>
+                <p id="Datum"></p>
+                <p id="Ort"></p>
+                <p><a id="Url" href="#"></a></p>
+            </div>
+            <div class="col-md-3">
+                <br>
+                <a href="#" id="share_fb" class="button social_button"><i class="fa fa-facebook-square fa-lg"></i>auf facebook teilen</a>
+                <a href="#" id="share_twitter" class="button social_button"><i class="fa fa-twitter fa-lg"></i>tweeten</a>
+                <a href="mailto:?subject=SWISS GEO ART EXPLORER - Kuenstlername&body=Hallo, schau dir mal die Ausstellung von Kuenstlername an: URL" id="share_mail" class="button social_button"><i class="fa fa-envelope"></i>link als mail senden</a>
             </div>
         </div>
     </div>
