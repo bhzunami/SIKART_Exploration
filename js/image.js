@@ -28,7 +28,7 @@ var images = {
     loadImage : function (werk, width, height, target) {
         //Check if exists
         var img = new Image();
-        path = 'images/bilder/'+werk.Bildname;
+        var path = 'images/bilder/'+werk.Bildname;
         img.src = path;
         if(img.height != 0){
             var div = $("<div>", { class: "js_imageContainer js_artist", 'data-hauptnr': werk.Urhauptnr });

@@ -495,10 +495,21 @@ a.button.icon_button:focus {
 }
 
 
+.active_canton {
+    fill: #bc005f;
+}
+
 .swiss_map {
     width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     float: none;
+}
+
+
+.footer {
+  height: 100px;
+  clear:both;
+  padding-top:30px;
 }
