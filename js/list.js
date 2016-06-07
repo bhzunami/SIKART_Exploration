@@ -33,7 +33,15 @@ $(function(){
     var target = $('#exhibition_detail');
     exhibition.Kuenstler = "";
     exhibition.Artists.forEach(function (a) {
-      exhibition.Kuenstler += a.Vorname + ' ' + a.Name;
+      var artist = data.artists[a];
+      if(artist) {
+        if(exhibition.Kuenstler != ''){
+          exhibition.Kuenstler += ', ';
+        }else{
+          exhibition.Kuenstler += 'Mit Künstlern von: ';
+        }
+        exhibition.Kuenstler += artist.Vorname + ' ' + artist.Name;
+      }
     });
 
     loadDetail(exhibition, target);
