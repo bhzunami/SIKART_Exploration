@@ -292,6 +292,7 @@ div #titlebar {
 
 #timelineslider .d3-slider-handle {
     width: 2.5em;
+    cursor: pointer;
 }
 
 #filters{
@@ -511,4 +512,7 @@ a.button.icon_button:focus {
     margin-left: auto;
     margin-right: auto;
     float: none;
+}
+.swiss_map path{
+    cursor: pointer;
 }
