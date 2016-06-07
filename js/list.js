@@ -1,13 +1,19 @@
+function scrollToBottom(){
+  $('html, body').animate({scrollTop: $("body").height()}, 800);
+}
+
 $(function(){
 
   $(document).on('click','.js_artist',function(){
     var artistHauptnr = $(this).data('hauptnr');
     loadArtist(artistHauptnr);
+    scrollToBottom();
   });
 
   $(document).on('click','.js_exhibition',function(){
     var exhibitionHauptnr = $(this).data('hauptnr');
     loadExhibition(exhibitionHauptnr);
+    scrollToBottom();
   });
 
   function loadArtist(artistHauptnr){
