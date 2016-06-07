@@ -38,7 +38,7 @@ $(function(){
         if(exhibition.Kuenstler != ''){
           exhibition.Kuenstler += ', ';
         }else{
-          exhibition.Kuenstler += 'Mit Künstlern von: ';
+          exhibition.Kuenstler += 'Mit Werken von: <br>';
         }
         exhibition.Kuenstler += artist.Vorname + ' ' + artist.Name;
       }

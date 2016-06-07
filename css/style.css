@@ -177,6 +177,7 @@ p.vita{
     position: absolute;
     white-space: pre-wrap;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    text-align: left;
 }
 
 #imagepreview .bildlegende {
@@ -217,6 +218,36 @@ p.vita{
 
 #subnav a:hover{
     color: #e41682;
+}
+
+.numberExceeded, 
+.numberExceeded a {
+    font-size: 12px;
+    font-weight: 700;
+    color: #cccccc;
+    padding-top: 4px;
+}
+
+.numberExceeded a:hover{
+    color: #e41682;
+}
+
+.numberExceeded.right {
+    line-height: 0px;
+    padding-top: 0px;
+    margin-top: -17px;
+    padding-right: 46px;
+}
+
+.copyright {
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  padding-top: 12px;
+}
+.right {
+    text-align: right;
 }
 
 
@@ -284,6 +315,11 @@ div #titlebar {
     height: 60px;
 }
 
+#footer{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
 #timelineslider{
     margin-top: 10px;
     margin-bottom: 30px;
@@ -304,9 +340,20 @@ div #titlebar {
     height: 195px;
 }
 
+
+
+@media (min-width: 991px){
+    #kunstschaffende, 
+    #ausstellungen {
+        padding-left: 0px;
+    }
+}
+
+
 #artist_detail, #exhibition_detail{
     margin-bottom: 10px;
     display: none;
+    margin-top: 20px;
 }
 
 .imageprev{
@@ -522,8 +569,3 @@ a.button.icon_button:focus {
     cursor: pointer;
 }
 
-.footer {
-  height: 100px;
-  clear:both;
-  padding-top:30px;
-}
