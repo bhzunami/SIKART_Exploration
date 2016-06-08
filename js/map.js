@@ -1,6 +1,6 @@
 
 var width = 0.9 * window.innerWidth;
-var height = 0.3 * width; //window.innerHeight;
+var height = 0.8 * window.innerHeight;
 
 var projection = d3.geo.albers().rotate([0, 0])
     .center([8.73, 46.9]) // Long Lat
@@ -18,6 +18,7 @@ var tooltip = d3.select(".map")
     .append("div")
     .attr("id", "tooltip");
 
+
 var curCanton = ''; //TODO: Fix default canton
 // Load data
 d3.json("/data/switzerland.json", function(error, topology) {
@@ -29,9 +30,14 @@ d3.json("/data/switzerland.json", function(error, topology) {
       .enter().append("path")
       .attr("class", "canton")
       .on("mouseover", function (d) {
-        tooltip.text(d.properties.name);
+
+        //svg.selectAll("path").style("fill", "none");
+        tooltip.text(d.properties.name +" ("+getSizeOfArtist(d.properties.abbr) +" Künstler / "
+        +getSizeOfExhibitions(d.properties.abbr) +" Ausstellungen)");
         tooltip.style("visibility", "visible");
-        console.log(d.properties.name);
+        svg.selectAll("path").filter(function(p){
+          return d.properties.abbr == p.properties.abbr;
+        }).attr("class", getColorForMap(d.properties.abbr, false));     //.style("fill", "blue");
       })
       .on("mousedown", function (d) {
         curCanton = d.properties.abbr;
@@ -40,10 +46,11 @@ d3.json("/data/switzerland.json", function(error, topology) {
         svg.selectAll("path").attr("class", "canton");
         svg.selectAll("path").filter(function(p){
           return d.properties.abbr == p.properties.abbr;
-        }).attr("class", "active_canton");
+        }).attr("class", getColorForMap(d.properties.abbr, true));
       })
       .attr("d", path);
 });
+
 
 function within(objStart, objEnd){
   searchStart = slider.val;
@@ -65,6 +72,42 @@ function reloadCantonData(){
     showArtists(allArtists);
     var allExhibitions = getKeys(data.exhibitions);
     showExhibitions(allExhibitions);
+  }
+}
+
+
+function getSizeOfArtist(canton) {
+  var artists = data.cantons[canton]['artists'];
+  var filteredArtists = artists
+      .filter(function(artistHauptNr){
+        var a = data.artists[artistHauptNr];
+        return within(a.Aktivbeginn, a.Aktivende);
+      });
+  return filteredArtists.length;
+
+}
+
+
+function getSizeOfExhibitions(canton) {
+  var exhibitions = data.cantons[canton]['exhibitions'];
+  var filteredExhibitions = exhibitions
+      .filter(function(exhibitionHauptNr){
+        var ex = data.exhibitions[exhibitionHauptNr];
+        return within(ex.JahrVon, ex.JahrBis);
+      });
+  return filteredExhibitions.length;
+
+}
+
+function getColorForMap(canton, hover) {
+  var numberOfArtists = getSizeOfArtist(canton);
+  var numberOfExhibitions = getSizeOfExhibitions(canton);
+  if (numberOfArtists > 50 || numberOfExhibitions > 50) {
+    return hover ? "active_canton_high" : "canton_high";
+  } else if(numberOfArtists > 20 || numberOfExhibitions > 20 ) {
+    return hover ? "active_canton_mid" : "canton_mid";
+  } else {
+    return hover ? "active_canton_low" : "canton_low";
   }
 }
 

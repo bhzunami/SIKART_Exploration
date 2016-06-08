@@ -539,12 +539,30 @@ a.button.icon_button:hover {
         padding: 10px;
 }
 
-.canton:hover {
-    fill: #de1677;
+
+.canton_low:hover {
+    fill: rgba(228, 22, 130, .2);
 }
 
-.active_canton {
-    fill: #bc005f;
+.canton_mid:hover {
+    fill: rgba(228, 22, 130, .5);
+}
+
+
+.canton_high:hover {
+    fill: rgba(228, 22, 130, .8);
+}
+
+.active_canton_low {
+    fill: rgba(188,0,95,.2);
+}
+
+.active_canton_mid {
+    fill: rgba(188,0,95,.5);
+}
+
+.active_canton_high {
+    fill: rgba(188,0,95,.8);
 }
 
 .swiss_map {
