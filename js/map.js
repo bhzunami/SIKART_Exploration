@@ -145,7 +145,7 @@ function showArtists(artists){
         }
       });
   if(artists.length > limit){
-      artistsElem.append('<div class="numberExceeded">von insgesamt '+artists.length+' Künstlern </div><div class="numberExceeded right"><a href=""><i class="fa fa-angle-double-right"></i>&nbsp;alle anzeigen</a></div>');
+      artistsElem.append('<div class="numberExceeded">von insgesamt '+filteredArtists.length+' Künstlern </div><div class="numberExceeded right"><a href=""><i class="fa fa-angle-double-right"></i>&nbsp;alle anzeigen</a></div>');
   }
 
   var imgTarget = $('#imagepreview .js_picslider');
