@@ -33,6 +33,12 @@ path {
 body, p, a, div{
     font-family: 'Arimo', sans-serif;
     color: black;
+    text-decoration: none;
+}
+
+a, a:visited{
+    color: #e41682;
+    text-decoration: none;
 }
 
 div {
@@ -344,8 +350,32 @@ div #titlebar {
     padding: 10px 0px;
 }
 
+@media (max-width: 767px){
+    #filters{
+    padding: 10px 15px;
+}
+}
+
 #imagepreview{
     height: 195px;
+}
+
+@media (max-width: 1199px){
+    #imagepreview{
+        height: 395px;
+    }
+}
+
+@media (max-width: 584px){
+    #imagepreview{
+        height: 595px;
+    }
+}
+
+@media (max-width: 389px){
+    #imagepreview{
+        height: 1195px;
+    }
 }
 
 @media (min-width: 991px){
@@ -539,22 +569,51 @@ a.button.icon_button:hover {
         padding: 10px;
 }
 
+.canton_verylow {
+    fill: #dddddd;
+}
+
+.canton_verylow:hover {
+    fill: rgba(228, 22, 130, .2);
+}
+
+.canton_low {
+    fill: #cccccc;
+}
 
 .canton_low:hover {
-    fill: rgba(228, 22, 130, .2);
+    fill: rgba(228, 22, 130, .35);
+}
+
+.canton_mid {
+    fill: #bbbbbb;
 }
 
 .canton_mid:hover {
     fill: rgba(228, 22, 130, .5);
 }
 
+.canton_high{
+  fill: #aaaaaa;
+}
 
 .canton_high:hover {
     fill: rgba(228, 22, 130, .8);
 }
 
-.active_canton_low {
+.canton_veryhigh{
+  fill: #999999;
+} 
+
+.canton_veryhigh:hover {
+    fill: rgba(228, 22, 130, .95);
+}
+
+.active_canton_verylow {
     fill: rgba(188,0,95,.2);
+}
+.active_canton_low {
+    fill: rgba(188,0,95,.35);
 }
 
 .active_canton_mid {
@@ -564,6 +623,10 @@ a.button.icon_button:hover {
 .active_canton_high {
     fill: rgba(188,0,95,.8);
 }
+.active_canton_veryhigh {
+    fill: rgba(188,0,95,.95);
+}
+
 
 .swiss_map {
     width: 70%;
