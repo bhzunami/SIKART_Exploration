@@ -1,6 +1,6 @@
 
 var width = 0.9 * window.innerWidth;
-var height = 0.8 * window.innerHeight;
+var height = 1 * window.innerHeight;
 
 var projection = d3.geo.albers().rotate([0, 0])
     .center([8.73, 46.9]) // Long Lat
@@ -21,36 +21,52 @@ var tooltip = d3.select(".map")
 
 var curCanton = ''; //TODO: Fix default canton
 // Load data
-d3.json("/data/switzerland.json", function(error, topology) {
-  if (error) throw error;
+$(function() {
+    d3.json("/data/switzerland.json", function (error, topology) {
+        if (error) throw error;
 
-  // Add the svg to our website
-  svg.selectAll("path")
-      .data(topojson.feature(topology, topology.objects.cantons).features)
-      .enter().append("path")
-      .attr("class", "canton")
-      .on("mouseover", function (d) {
+        // Add the svg to our website
+        svg.selectAll("path")
+            .data(topojson.feature(topology, topology.objects.cantons).features)
+            .enter().append("path")
+            .attr("class", "canton")
+            .on("mouseover", function (d) {
 
-        //svg.selectAll("path").style("fill", "none");
-        tooltip.text(d.properties.name +" ("+getSizeOfArtist(d.properties.abbr) +" Künstler / "
-        +getSizeOfExhibitions(d.properties.abbr) +" Ausstellungen)");
-        tooltip.style("visibility", "visible");
-        svg.selectAll("path").filter(function(p){
-          return d.properties.abbr == p.properties.abbr;
-        }).attr("class", getColorForMap(d.properties.abbr, false));     //.style("fill", "blue");
-      })
-      .on("mousedown", function (d) {
-        curCanton = d.properties.abbr;
-        reloadCantonData();
+                //svg.selectAll("path").style("fill", "none");
+                tooltip.text(d.properties.name + " (" + getSizeOfArtist(d.properties.abbr) + " Künstler / "
+                    + getSizeOfExhibitions(d.properties.abbr) + " Ausstellungen)");
+                tooltip.style("visibility", "visible");
+                svg.selectAll("path").filter(function (p) {
+                    return d.properties.abbr == p.properties.abbr;
+                }).attr("class", getColorForMap(d.properties.abbr, false));     //.style("fill", "blue");
+            })
+            .on("mousedown", function (d) {
+                curCanton = d.properties.abbr;
+                reloadCantonData();
 
-        svg.selectAll("path").attr("class", "canton");
-        svg.selectAll("path").filter(function(p){
-          return d.properties.abbr == p.properties.abbr;
-        }).attr("class", getColorForMap(d.properties.abbr, true));
-      })
-      .attr("d", path);
+                svg.selectAll("path").attr("class", "canton");
+                repaintCantons();
+                svg.selectAll("path").filter(function (p) {
+                    return d.properties.abbr == p.properties.abbr;
+                }).attr("class", getColorForMap(d.properties.abbr, true));
+            })
+            .attr("d", path);
+
+        repaintCantons();
+    });
 });
 
+function repaintCantons(){
+    // Add default color
+    svg.selectAll("path").each(function (d, i) {
+        svg.selectAll("path").filter(function (p) {
+                return d.properties.abbr == p.properties.abbr;
+            })
+            .attr("class", function (p, i) {
+                return getColorForMap(d.properties.abbr, false);
+            });
+    });
+}
 
 function within(objStart, objEnd){
   searchStart = slider.val;

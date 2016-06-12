@@ -15,16 +15,12 @@ function refreshPicSlider(){
   items = $('.js_detailslider .js_imageContainer');
   all_items = items.length;
   cycleItems();
-  console.log("items total: " + items.length);
-  console.log("current index:" +currentIndex);
 }
 
 function cycleItems() {
   var item = $('.js_detailslider .js_imageContainer').eq(currentIndex);
   items.hide();
   item.css('display','inline-block');
-  console.log("items total: " + items.length);
-  console.log("current index:" +currentIndex);
 }
 
 var autoSlide = setInterval(function() {
