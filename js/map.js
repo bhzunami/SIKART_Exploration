@@ -118,12 +118,16 @@ function getSizeOfExhibitions(canton) {
 function getColorForMap(canton, hover) {
   var numberOfArtists = getSizeOfArtist(canton);
   var numberOfExhibitions = getSizeOfExhibitions(canton);
-  if (numberOfArtists > 50 || numberOfExhibitions > 50) {
+  if (numberOfArtists > 100 || numberOfExhibitions > 100) {
+    return hover ? "active_canton_veryhigh" : "canton_veryhigh";
+  } else if(numberOfArtists > 50 || numberOfExhibitions > 50 ) {
     return hover ? "active_canton_high" : "canton_high";
   } else if(numberOfArtists > 20 || numberOfExhibitions > 20 ) {
     return hover ? "active_canton_mid" : "canton_mid";
-  } else {
+  } else if(numberOfArtists > 10 || numberOfExhibitions > 10 ) {
     return hover ? "active_canton_low" : "canton_low";
+  } else {
+    return hover ? "active_canton_verylow" : "canton_verylow";
   }
 }
 
